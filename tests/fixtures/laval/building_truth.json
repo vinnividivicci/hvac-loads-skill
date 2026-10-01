@@ -1,0 +1,50 @@
+{
+  "schema": "hvacload.building/1",
+  "units": "m",
+  "project": {"name": "Laval ground truth", "jurisdiction": "CA-QC", "north_arrow_deg": 15, "units_system": "SI"},
+  "source": {"kind": "vector", "stated": {"conditioned_area": 249.6, "glazing_area": 21.6}},
+  "levels": [
+    {"id": "B", "name": "Sous-sol", "elevation": -2.0, "ceiling_height": 2.3, "floor_to_floor": 2.6},
+    {"id": "L1", "name": "RDC", "elevation": 0.6, "ceiling_height": 2.44, "floor_to_floor": 2.74},
+    {"id": "L2", "name": "Étage", "elevation": 3.34, "ceiling_height": 2.44}
+  ],
+  "foundation": {"type": "slab"},
+  "attic": {"type": "vented", "roof_pitch": 6},
+  "rooms": [
+    {"id": "jeux", "level": "B", "type": "family", "polygon": [[0,0],[10.4,0],[10.4,5],[0,5]]},
+    {"id": "meca", "level": "B", "type": "utility", "polygon": [[0,5],[10.4,5],[10.4,8],[0,8]]},
+    {"id": "salon", "level": "L1", "type": "living", "polygon": [[0,0],[5.6,0],[5.6,4.8],[0,4.8]]},
+    {"id": "cuisine", "level": "L1", "type": "kitchen", "polygon": [[5.6,0],[10.4,0],[10.4,4.8],[5.6,4.8]]},
+    {"id": "hall1", "level": "L1", "type": "hall", "polygon": [[0,4.8],[3.2,4.8],[3.2,8],[0,8]]},
+    {"id": "sde", "level": "L1", "type": "bath", "polygon": [[3.2,4.8],[5.6,4.8],[5.6,8],[3.2,8]]},
+    {"id": "familiale", "level": "L1", "type": "family", "polygon": [[5.6,4.8],[10.4,4.8],[10.4,8],[5.6,8]]},
+    {"id": "hall2", "level": "L2", "type": "hall", "polygon": [[0,0],[3.2,0],[3.2,4],[0,4]]},
+    {"id": "ch2", "level": "L2", "type": "bedroom", "polygon": [[3.2,0],[7,0],[7,4],[3.2,4]]},
+    {"id": "ch3", "level": "L2", "type": "bedroom", "polygon": [[7,0],[10.4,0],[10.4,4],[7,4]]},
+    {"id": "chp", "level": "L2", "type": "bedroom", "polygon": [[0,4],[5.2,4],[5.2,8],[0,8]]},
+    {"id": "sdb", "level": "L2", "type": "bath", "polygon": [[5.2,4],[7.2,4],[7.2,8],[5.2,8]]},
+    {"id": "wic", "level": "L2", "type": "closet", "polygon": [[7.2,4],[10.4,4],[10.4,8],[7.2,8]]}
+  ],
+  "openings": [
+    {"id": "o1", "room": "salon", "at": [2.8, 0], "width": 1.2, "height": 1.5, "sill": 0.9, "product": "win"},
+    {"id": "o2", "room": "salon", "at": [0, 2.4], "width": 0.9, "height": 1.2, "sill": 0.9, "product": "win"},
+    {"id": "o3", "room": "cuisine", "at": [8.0, 0], "width": 1.2, "height": 1.5, "sill": 0.9, "product": "win"},
+    {"id": "o4", "room": "cuisine", "kind": "glass_door", "at": [10.4, 2.4], "width": 1.8, "height": 2.03, "product": "win"},
+    {"id": "o5", "room": "hall1", "kind": "door", "at": [1.6, 8], "width": 0.915, "height": 2.03, "product": "door"},
+    {"id": "o6", "room": "sde", "at": [4.4, 8], "width": 0.6, "height": 0.9, "sill": 1.2, "product": "win"},
+    {"id": "o7", "room": "familiale", "at": [8.0, 8], "width": 1.2, "height": 1.5, "sill": 0.9, "product": "win"},
+    {"id": "o8", "room": "familiale", "at": [10.4, 6.4], "width": 0.9, "height": 1.2, "sill": 0.9, "product": "win"},
+    {"id": "o9", "room": "hall2", "at": [0, 2.0], "width": 0.9, "height": 1.2, "sill": 0.9, "product": "win"},
+    {"id": "o10", "room": "ch2", "at": [5.1, 0], "width": 1.2, "height": 1.5, "sill": 0.9, "product": "win"},
+    {"id": "o11", "room": "ch3", "at": [8.7, 0], "width": 1.2, "height": 1.5, "sill": 0.9, "product": "win"},
+    {"id": "o12", "room": "ch3", "at": [10.4, 2.0], "width": 0.9, "height": 1.2, "sill": 0.9, "product": "win"},
+    {"id": "o13", "room": "chp", "at": [2.6, 8], "width": 1.2, "height": 1.5, "sill": 0.9, "product": "win"},
+    {"id": "o14", "room": "chp", "at": [0, 6.0], "width": 0.9, "height": 1.2, "sill": 0.9, "product": "win"},
+    {"id": "o15", "room": "sdb", "at": [6.2, 8], "width": 0.6, "height": 0.9, "sill": 1.2, "product": "win"},
+    {"id": "o16", "room": "jeux", "at": [2.6, 0], "width": 0.8, "height": 0.4, "sill": 1.6, "product": "win"},
+    {"id": "o17", "room": "jeux", "at": [7.8, 0], "width": 0.8, "height": 0.4, "sill": 1.6, "product": "win"}
+  ],
+  "fenestration": {"win": {"u_si": 1.2, "shgc": 0.30}, "door": {"u_si": 0.9, "kind": "door"}},
+  "assemblies": {},
+  "surface_assemblies": {}
+}

@@ -1,0 +1,252 @@
+{
+  "schema": "hvacload.building/1",
+  "units": "m",
+  "project": {
+    "name": "Example: two-room slab-on-grade house (Montreal)",
+    "jurisdiction": "CA-QC",
+    "north_arrow_deg": 0,
+    "units_system": "SI"
+  },
+  "source": {
+    "kind": "vector",
+    "stated": {
+      "conditioned_area": 60.0
+    },
+    "dimension_chains": [
+      {
+        "label": "south overall",
+        "parts": [
+          6.0,
+          4.0
+        ],
+        "total": 10.0,
+        "axis": "x",
+        "level": "L1"
+      },
+      {
+        "label": "west overall",
+        "parts": [
+          6.0
+        ],
+        "total": 6.0,
+        "axis": "y",
+        "level": "L1"
+      }
+    ]
+  },
+  "levels": [
+    {
+      "id": "L1",
+      "name": "Ground floor",
+      "elevation": 0.2,
+      "ceiling_height": 2.44
+    }
+  ],
+  "foundation": {
+    "type": "slab"
+  },
+  "attic": {
+    "type": "vented",
+    "roof_pitch": 6
+  },
+  "rooms": [
+    {
+      "id": "living",
+      "name": "Living/kitchen",
+      "level": "L1",
+      "type": "living",
+      "polygon": [
+        [
+          0,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          0,
+          6
+        ]
+      ],
+      "src": "example"
+    },
+    {
+      "id": "bed",
+      "name": "Bedroom",
+      "level": "L1",
+      "type": "bedroom",
+      "polygon": [
+        [
+          6,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          6,
+          6
+        ]
+      ],
+      "src": "example"
+    }
+  ],
+  "openings": [
+    {
+      "id": "W1",
+      "room": "living",
+      "at": [
+        3,
+        0
+      ],
+      "width": 2.0,
+      "height": 1.5,
+      "product": "win",
+      "src": "example"
+    },
+    {
+      "id": "D1",
+      "room": "living",
+      "kind": "door",
+      "at": [
+        0,
+        3
+      ],
+      "width": 0.9,
+      "height": 2.03,
+      "product": "door",
+      "src": "example"
+    },
+    {
+      "id": "W2",
+      "room": "bed",
+      "at": [
+        10,
+        3
+      ],
+      "width": 1.2,
+      "height": 1.2,
+      "product": "win",
+      "src": "example"
+    }
+  ],
+  "fenestration": {
+    "win": {
+      "u_si": 1.6,
+      "shgc": 0.35,
+      "src": "Quebec 9.36 max U 2.0; example product 1.6"
+    },
+    "door": {
+      "u_si": 0.9,
+      "kind": "door",
+      "src": "Quebec 9.36 opaque door U <= 0.9"
+    }
+  },
+  "assemblies": {
+    "wall": {
+      "rsi": 3.7,
+      "desc": "2x6 + continuous insulation",
+      "src": "Quebec 9.36-QC Table 9.36.2.6.-B effective RSI < 6000 HDD"
+    },
+    "ceiling": {
+      "rsi": 7.22,
+      "src": "Quebec 9.36-QC attic ceiling"
+    },
+    "roof_deck": {
+      "rsi": 0.4,
+      "src": "typical uninsulated deck + shingles"
+    },
+    "gable": {
+      "rsi": 0.5,
+      "src": "typical uninsulated gable"
+    },
+    "slab": {
+      "perimeter_r_ip": 10,
+      "perimeter_depth_ft": 2,
+      "under_r_ip": 10,
+      "under_full": true,
+      "src": "example: RSI 1.76 heated-slab level"
+    }
+  },
+  "surface_assemblies": {
+    "wall_exterior": "wall",
+    "ceiling_attic": "ceiling",
+    "roof_attic": "roof_deck",
+    "wall_attic_gable": "gable",
+    "slab": "slab"
+  },
+  "airtightness": {
+    "ach50": 2.5,
+    "src": "example target"
+  },
+  "ventilation": {
+    "type": "hrv",
+    "lps": 20,
+    "sre": 0.65,
+    "src": "example"
+  },
+  "hvac": {
+    "distribution": "ductless",
+    "src": "example: cold-climate mini-split"
+  },
+  "design": {
+    "label": "Manual J method at NBC design conditions (not F280)",
+    "heating_outdoor": {
+      "value": -23,
+      "unit": "C",
+      "src": "NBC 2020 Table C-2, Montreal, January 2.5%"
+    },
+    "cooling_outdoor": {
+      "value": 30,
+      "unit": "C",
+      "src": "NBC 2020 Table C-2, Montreal, July 2.5% dry"
+    },
+    "cooling_wetbulb": {
+      "value": 21.2,
+      "unit": "C",
+      "src": "ASHRAE 2025 1% mean coincident wet bulb, Montreal-Trudeau (coincident value used for latent loads)"
+    },
+    "daily_range": {
+      "value": 10.1,
+      "unit": "C",
+      "src": "ASHRAE 2025 via OneBuilding DDY, Montreal-Trudeau"
+    },
+    "indoor_heating": {
+      "value": 22,
+      "unit": "C",
+      "src": "NBC / F280 practice"
+    },
+    "weather": {
+      "source_url": "https://climate.onebuilding.org/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Montreal-Trudeau.Intl.AP.716270_TMYx.2011-2025.zip",
+      "station": "Montreal-Trudeau.Intl.AP (WMO 716270)"
+    },
+    "climate_zone_iecc": "6A",
+    "lat": 45.4667,
+    "lon": -73.75,
+    "elevation_m": 36,
+    "cooling_day": {
+      "month": 7,
+      "day": 21,
+      "taub": 0.421,
+      "taud": 2.329,
+      "wind_ms": 5.5
+    }
+  },
+  "assumptions": [
+    {
+      "item": "everything",
+      "value": "illustrative",
+      "basis": "example input, not a real house"
+    }
+  ]
+}

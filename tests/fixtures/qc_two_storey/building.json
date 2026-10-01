@@ -1,0 +1,623 @@
+{
+  "schema": "hvacload.building/1",
+  "units": "m",
+  "project": {
+    "name": "Synthetic two-storey house with basement (Montreal)",
+    "jurisdiction": "CA-QC",
+    "north_arrow_deg": 30,
+    "units_system": "SI"
+  },
+  "source": {
+    "pdf": "",
+    "kind": "vector",
+    "stated": {
+      "conditioned_area": 259.5,
+      "garage_area": 24.0
+    },
+    "dimension_chains": [
+      {
+        "label": "south overall",
+        "parts": [
+          10.0,
+          4.0
+        ],
+        "total": 14.0,
+        "axis": "x",
+        "level": "L1"
+      },
+      {
+        "label": "west overall",
+        "parts": [
+          5.0,
+          3.0
+        ],
+        "total": 8.0
+      }
+    ]
+  },
+  "levels": [
+    {
+      "id": "B",
+      "name": "Basement",
+      "elevation": -2.0,
+      "ceiling_height": 2.3,
+      "floor_to_floor": 2.6
+    },
+    {
+      "id": "L1",
+      "name": "Ground floor",
+      "elevation": 0.6,
+      "ceiling_height": 2.44,
+      "floor_to_floor": 2.74
+    },
+    {
+      "id": "L2",
+      "name": "Upper floor",
+      "elevation": 3.34,
+      "ceiling_height": 2.44
+    }
+  ],
+  "foundation": {
+    "type": "slab"
+  },
+  "attic": {
+    "type": "vented",
+    "roof_pitch": 6
+  },
+  "rooms": [
+    {
+      "id": "rec",
+      "name": "Rec room",
+      "level": "B",
+      "type": "family",
+      "polygon": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "src": "fixture"
+    },
+    {
+      "id": "mech",
+      "name": "Mechanical",
+      "level": "B",
+      "type": "utility",
+      "polygon": [
+        [
+          0,
+          5
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          10,
+          8
+        ],
+        [
+          0,
+          8
+        ]
+      ],
+      "src": "fixture"
+    },
+    {
+      "id": "living",
+      "name": "Living",
+      "level": "L1",
+      "type": "living",
+      "polygon": [
+        [
+          0,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          0,
+          8
+        ]
+      ],
+      "src": "fixture"
+    },
+    {
+      "id": "kitchen",
+      "name": "Kitchen",
+      "level": "L1",
+      "type": "kitchen",
+      "polygon": [
+        [
+          6,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          10,
+          8
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "src": "fixture"
+    },
+    {
+      "id": "garage",
+      "name": "Garage",
+      "level": "L1",
+      "type": "garage",
+      "floor_elevation": 0.0,
+      "ceiling_height": 2.6,
+      "polygon": [
+        [
+          10,
+          0
+        ],
+        [
+          14,
+          0
+        ],
+        [
+          14,
+          6
+        ],
+        [
+          10,
+          6
+        ]
+      ],
+      "src": "fixture"
+    },
+    {
+      "id": "bed1",
+      "name": "Bedroom 1",
+      "level": "L2",
+      "type": "bedroom",
+      "polygon": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "src": "fixture"
+    },
+    {
+      "id": "bed2",
+      "name": "Bedroom 2",
+      "level": "L2",
+      "type": "bedroom",
+      "polygon": [
+        [
+          5,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          5,
+          4
+        ]
+      ],
+      "src": "fixture"
+    },
+    {
+      "id": "bed3",
+      "name": "Bedroom 3",
+      "level": "L2",
+      "type": "bedroom",
+      "polygon": [
+        [
+          0,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          0,
+          8
+        ]
+      ],
+      "src": "fixture"
+    },
+    {
+      "id": "bath",
+      "name": "Bath",
+      "level": "L2",
+      "type": "bath",
+      "polygon": [
+        [
+          5,
+          4
+        ],
+        [
+          7.5,
+          4
+        ],
+        [
+          7.5,
+          8
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "src": "fixture"
+    },
+    {
+      "id": "hall",
+      "name": "Hall",
+      "level": "L2",
+      "type": "hall",
+      "polygon": [
+        [
+          7.5,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          10,
+          8
+        ],
+        [
+          7.5,
+          8
+        ]
+      ],
+      "src": "fixture"
+    },
+    {
+      "id": "bonus",
+      "name": "Bonus room over garage",
+      "level": "L2",
+      "type": "family",
+      "polygon": [
+        [
+          10,
+          0
+        ],
+        [
+          14,
+          0
+        ],
+        [
+          14,
+          6
+        ],
+        [
+          10,
+          6
+        ]
+      ],
+      "src": "fixture"
+    }
+  ],
+  "openings": [
+    {
+      "id": "W_liv_S",
+      "room": "living",
+      "at": [
+        3,
+        0
+      ],
+      "width": 2.4,
+      "height": 1.5,
+      "product": "win",
+      "src": "fixture"
+    },
+    {
+      "id": "W_liv_W",
+      "room": "living",
+      "at": [
+        0,
+        4
+      ],
+      "width": 1.2,
+      "height": 1.5,
+      "product": "win",
+      "src": "fixture"
+    },
+    {
+      "id": "D_front",
+      "room": "living",
+      "kind": "door",
+      "at": [
+        5,
+        0
+      ],
+      "width": 0.9,
+      "height": 2.03,
+      "product": "door",
+      "src": "fixture"
+    },
+    {
+      "id": "W_kit_N",
+      "room": "kitchen",
+      "at": [
+        8,
+        8
+      ],
+      "width": 1.5,
+      "height": 1.2,
+      "product": "win",
+      "src": "fixture"
+    },
+    {
+      "id": "D_patio",
+      "room": "kitchen",
+      "kind": "glass_door",
+      "at": [
+        10,
+        7
+      ],
+      "width": 1.8,
+      "height": 2.03,
+      "product": "win",
+      "src": "fixture"
+    },
+    {
+      "id": "D_garage",
+      "room": "kitchen",
+      "kind": "door",
+      "at": [
+        10,
+        3
+      ],
+      "width": 0.9,
+      "height": 2.03,
+      "product": "door",
+      "src": "fixture"
+    },
+    {
+      "id": "W_b1",
+      "room": "bed1",
+      "at": [
+        2.5,
+        0
+      ],
+      "width": 1.2,
+      "height": 1.2,
+      "product": "win",
+      "src": "fixture"
+    },
+    {
+      "id": "W_b2",
+      "room": "bed2",
+      "at": [
+        7.5,
+        0
+      ],
+      "width": 1.2,
+      "height": 1.2,
+      "product": "win",
+      "src": "fixture"
+    },
+    {
+      "id": "W_b3",
+      "room": "bed3",
+      "at": [
+        0,
+        6
+      ],
+      "width": 1.2,
+      "height": 1.2,
+      "product": "win",
+      "src": "fixture"
+    },
+    {
+      "id": "W_bath",
+      "room": "bath",
+      "at": [
+        6.2,
+        8
+      ],
+      "width": 0.6,
+      "height": 0.9,
+      "product": "win",
+      "src": "fixture"
+    },
+    {
+      "id": "W_bonus",
+      "room": "bonus",
+      "at": [
+        14,
+        3
+      ],
+      "width": 1.2,
+      "height": 1.2,
+      "product": "win",
+      "src": "fixture"
+    },
+    {
+      "id": "W_rec",
+      "room": "rec",
+      "at": [
+        5,
+        0
+      ],
+      "width": 1.0,
+      "height": 0.5,
+      "sill": 1.7,
+      "product": "win",
+      "src": "fixture"
+    }
+  ],
+  "fenestration": {
+    "win": {
+      "u_si": 1.6,
+      "shgc": 0.35,
+      "src": "fixture"
+    },
+    "door": {
+      "u_si": 0.9,
+      "kind": "door",
+      "src": "fixture"
+    }
+  },
+  "assemblies": {
+    "wall": {
+      "rsi": 3.7,
+      "src": "fixture"
+    },
+    "wall_garage": {
+      "rsi": 3.0,
+      "src": "fixture"
+    },
+    "uninsulated_wall": {
+      "rsi": 0.5,
+      "src": "fixture"
+    },
+    "ceiling": {
+      "rsi": 7.22,
+      "src": "fixture"
+    },
+    "floor_garage": {
+      "rsi": 5.02,
+      "src": "fixture"
+    },
+    "roof_deck": {
+      "rsi": 0.4,
+      "src": "fixture"
+    },
+    "roof_garage": {
+      "rsi": 0.4,
+      "src": "fixture"
+    },
+    "fdn_wall": {
+      "rsi": 3.3,
+      "src": "fixture"
+    },
+    "slab_bsmt": {
+      "perimeter_r_ip": 0,
+      "under_r_ip": 0,
+      "src": "fixture"
+    },
+    "slab_garage": {
+      "perimeter_r_ip": 0,
+      "under_r_ip": 0,
+      "src": "fixture"
+    }
+  },
+  "surface_assemblies": {
+    "wall_exterior": "wall",
+    "wall_to_garage": "wall_garage",
+    "wall_garage_exterior": "uninsulated_wall",
+    "wall_attic_gable": "uninsulated_wall",
+    "ceiling_attic": "ceiling",
+    "roof_attic": "roof_deck",
+    "floor_over_garage": "floor_garage",
+    "roof_garage": "roof_garage",
+    "ceiling_garage": "roof_garage",
+    "wall_basement": "fdn_wall",
+    "slab": "slab_bsmt",
+    "slab_garage": "slab_garage"
+  },
+  "airtightness": {
+    "ach50": 2.5,
+    "src": "fixture"
+  },
+  "ventilation": {
+    "type": "hrv",
+    "lps": 30,
+    "sre": 0.7,
+    "src": "fixture"
+  },
+  "hvac": {
+    "distribution": "ductless",
+    "src": "fixture"
+  },
+  "design": {
+    "label": "Manual J method at NBC design conditions (not F280)",
+    "heating_outdoor": {
+      "value": -23.0,
+      "unit": "C",
+      "src": "NBC 2020 Table C-2, Montreal, January 2.5% (fixture)"
+    },
+    "cooling_outdoor": {
+      "value": 30.0,
+      "unit": "C",
+      "src": "NBC 2020 Table C-2, Montreal, July 2.5% dry (fixture)"
+    },
+    "cooling_wetbulb": {
+      "value": 23.0,
+      "unit": "C",
+      "src": "NBC 2020 Table C-2, Montreal, July 2.5% wet (fixture)"
+    },
+    "daily_range": {
+      "value": 10.1,
+      "unit": "C",
+      "src": "ASHRAE 2025 mean daily range, Montreal-Trudeau.Intl.AP (WMO 716270)"
+    },
+    "weather": {
+      "station": "Montreal-Trudeau.Intl.AP (WMO 716270)",
+      "source_url": "https://climate.onebuilding.org/WMO_Region_4_North_and_Central_America/CAN_Canada/QC_Quebec/CAN_QC_Montreal-Trudeau.Intl.AP.716270_TMYx.2011-2025.zip"
+    },
+    "lat": 45.4667,
+    "lon": -73.75,
+    "elevation_m": 36.0,
+    "cooling_day": {
+      "month": 7,
+      "day": 21,
+      "taub": 0.421,
+      "taud": 2.329,
+      "wind_ms": 5.5
+    },
+    "climate_zone_iecc": "6A",
+    "indoor_heating": {
+      "value": 22.0,
+      "unit": "C",
+      "src": "NBC/F280 practice (fixture)"
+    }
+  }
+}

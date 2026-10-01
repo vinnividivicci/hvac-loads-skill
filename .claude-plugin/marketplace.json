@@ -1,0 +1,11 @@
+{
+  "name": "hvac-loads-skill",
+  "owner": { "name": "Vincent Cadoret" },
+  "plugins": [
+    {
+      "name": "hvac-loads",
+      "source": "./",
+      "description": "Room-by-room residential heating and cooling design loads from house-plan PDFs, with an independent cross-check and a 3D model."
+    }
+  ]
+}

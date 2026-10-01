@@ -1,0 +1,11 @@
+{
+  "name": "hvac-loads",
+  "displayName": "HVAC design loads from house plans",
+  "version": "0.1.0",
+  "description": "Room-by-room residential heating and cooling design loads from house-plan PDFs (vector or scanned): ACCA Manual J procedures via OpenStudio-HPXML, an independent EnergyPlus cross-check, EN/FR reports and a 3D model of the calculated surfaces.",
+  "author": { "name": "Vincent Cadoret" },
+  "homepage": "https://github.com/vinnividivicci/hvac-loads-skill",
+  "repository": "https://github.com/vinnividivicci/hvac-loads-skill",
+  "license": "MIT",
+  "keywords": ["hvac", "manual-j", "heat-loss", "heat-gain", "load-calculation", "energyplus", "openstudio-hpxml", "heat-pump", "csa-f280", "building-energy"]
+}

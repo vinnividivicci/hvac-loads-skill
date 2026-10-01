@@ -1,0 +1,5 @@
+# Normalise line endings in the repository; check out with the platform's native endings
+* text=auto eol=lf
+*.png binary
+*.pdf binary
+*.epw binary
