@@ -4,7 +4,7 @@ A [Claude Code](https://claude.com/claude-code) skill that turns house plans (ve
 
 > **Professional-use notice.** This is a design aid for qualified professionals, like a calculation spreadsheet. It is **not** an ACCA-approved Manual J report and **not** a CSA F280-verified calculation. The professional using it remains responsible for the inputs, the method and the results.
 
-![3D model coloured by room heating load](docs/images/model3d-heating.png)
+![3D model of the BPC-022 sample house, rebuilt from scanned plans](docs/images/sonoma-model3d.png)
 
 ## What it does
 
@@ -38,9 +38,29 @@ plans.pdf ──► takeoff (Claude reads the plans; tools calibrate, crop, meas
   - `takeoff.csv`: areas, U-values and UA per surface;
   - `results.json`.
 
-| Top view, ground floor, heating load per floor area | |
+## Example: a scanned sample house
+
+A fresh Claude Code session ran the skill on the BPC-022 sample house published by Permit Sonoma: a scanned 4-page plan set (not included here), sited in Santa Rosa, CA. The interview answers were scripted for the test. It took about 21 minutes from PDF to report.
+
+- **Scale.** The printed scale (1/4" = 1'-0") did not match the dimension strings, so the skill calibrated on the dimensions instead.
+- **Areas.** Glazing (158 ft²) and garage (280 ft²) matched the plans exactly. The conditioned area is 1,112 ft² modelled vs 1,136 ft² printed; the difference is the recessed porch.
+- **Ducts.** Ducts in the vented attic account for 37% of the heating load.
+
+![Report summary: heating 5.52 kW, sensible cooling 4.36 kW, ASHRAE 2025 design conditions for Santa Rosa](docs/images/sonoma-report-summary.png)
+
+![Room-by-room loads and load components in the HTML report](docs/images/sonoma-report-loads.png)
+
+The EnergyPlus model agrees with the Manual J result within −7% for heating and +5% for sensible cooling, compared like for like. Room-level cooling differences are larger in the small rooms, but stay under the 150 W absolute threshold for a flag.
+
+![Cross-check: Manual J vs EnergyPlus, whole house and room by room](docs/images/sonoma-crosscheck.png)
+
+The synthetic vector plan set in `tests/fixtures/laval` (French, metric, three levels), with rooms coloured by design heating load per floor area:
+
+| 3D view | Top view, ground floor |
 |---|---|
-| ![Top view](docs/images/top-view-ground-floor.png) | Each room is coloured by its design heating load per unit floor area. Click any surface in the viewer to see its area, U-value, assembly, orientation and the room's loads. |
+| ![3D model coloured by room heating load](docs/images/model3d-heating.png) | ![Top view of the ground floor coloured by room heating load](docs/images/top-view-ground-floor.png) |
+
+Click any surface in the viewer to see its area, U-value, assembly, orientation and the room's loads.
 
 ## Install
 
@@ -79,7 +99,7 @@ The skill's command-line tools (`uv run scripts/hvacload.py <command>`, `-h` for
 - `selftest` reproduces OpenStudio-HPXML's ACCA reference case exactly, for heating and sensible cooling.
 - **Like-for-like cross-check on the reference houses:** heating within ±7%; cooling mostly within ±6%. Cool-summer Quebec houses show larger cooling differences, which are flagged and explained (solar timing on walls and windows).
 - **End-to-end runs** by fresh Claude sessions:
-  - a scanned sample house: glazing area reconciled exactly;
+  - a scanned sample house ([example above](#example-a-scanned-sample-house)): glazing area reconciled exactly;
   - a synthetic vector plan set (`tests/fixtures/laval`): the takeoff matched the ground-truth model exactly, and the run caught a mis-printed scale and an inconsistent dimension chain.
 
 See [docs/design.md](docs/design.md) for the method, the design decisions, the validation details and cited background.
